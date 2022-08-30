@@ -1,5 +1,6 @@
 package com.PortfolioCSL.PortfolioV2.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -45,9 +46,11 @@ public class Usuario {
     private Set<Habilidades> habilidades = new HashSet<>();
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     @Setter(AccessLevel.NONE)
+    @JsonIgnore
     private Set<Proyectos> proyectos = new HashSet<>();
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     @Setter(AccessLevel.NONE)
+    @JsonIgnore
     private Set<RedesSociales> redessociales = new HashSet<>();
 
     public Usuario() {
