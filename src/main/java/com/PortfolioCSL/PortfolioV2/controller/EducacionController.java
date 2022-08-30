@@ -3,6 +3,7 @@ package com.PortfolioCSL.PortfolioV2.controller;
 
 import com.PortfolioCSL.PortfolioV2.model.Educacion;
 import com.PortfolioCSL.PortfolioV2.service.IEducacionService;
+import com.PortfolioCSL.PortfolioV2.service.IUsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,6 +20,9 @@ public class EducacionController {
     @Autowired
     private IEducacionService edu;
     
+    @Autowired
+    private IUsuarioService user;
+    
     //crear o editar, leer, buscar por id, borrar
     
     @PostMapping("/crear/Educacion")
@@ -30,6 +34,11 @@ public class EducacionController {
     @ResponseBody
     public List <Educacion>leerEducacion(){
         return edu.leerEducacion();
+    }
+    
+    @GetMapping("{id}/leerporid/Educacion/")
+    public List <Educacion>leerEducacionPorUsuario(@PathVariable Long id){
+        return edu.leerEducacionPorUsuario(user.buscarUsuario(id));
     }
     
     @GetMapping("/buscar/Educacion/{id}")
