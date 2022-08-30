@@ -2,6 +2,7 @@
 package com.PortfolioCSL.PortfolioV2.service;
 
 import com.PortfolioCSL.PortfolioV2.model.Educacion;
+import com.PortfolioCSL.PortfolioV2.model.Usuario;
 import java.util.List;
 
 public interface IEducacionService {
@@ -14,4 +15,6 @@ public interface IEducacionService {
         public Educacion buscarEducacion(Long id);
         
         public void borrarEducacion(Long id);
+        
+        public List <Educacion>leerEducacionPorUsuario(Usuario usuario);
 }
