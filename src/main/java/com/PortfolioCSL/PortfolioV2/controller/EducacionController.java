@@ -6,6 +6,7 @@ import com.PortfolioCSL.PortfolioV2.service.IEducacionService;
 import com.PortfolioCSL.PortfolioV2.service.IUsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,6 +42,7 @@ public class EducacionController {
         return edu.leerEducacionPorUsuario(user.buscarUsuario(id));
     }
     
+  //  @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/buscar/Educacion/{id}")
         public Educacion buscarEducacion(@PathVariable Long id){
             return edu.buscarEducacion(id);
