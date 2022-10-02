@@ -2,6 +2,7 @@
 package com.PortfolioCSL.PortfolioV2.service;
 
 import com.PortfolioCSL.PortfolioV2.model.Habilidades;
+import com.PortfolioCSL.PortfolioV2.model.Usuario;
 import com.PortfolioCSL.PortfolioV2.repository.IHabilidadesRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,11 @@ public class HabilidadesService implements IHabilidadesService{
     @Override
     public void borrarHabilidades(Long id) {
          hab.deleteById(id);
+    }
+
+    @Override
+    public List<Habilidades> leerHabilidadesPorUsuario(Usuario usuario) {
+        return hab.listaPorUsuarioId(usuario);
     }
     
 }

@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,6 +33,7 @@ public class AcercaDe {
     private String titulo;
     private String fotoPerfil;
     private String fotoPortada;
+   @Size(max=500)
     private String info;
     
     @JoinColumn(name = "usuario_id")
@@ -53,6 +55,6 @@ public class AcercaDe {
         this.usuario = usuario;
     }
 
-  
-    
+
+   
 }
