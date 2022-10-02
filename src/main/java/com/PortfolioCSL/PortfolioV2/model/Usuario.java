@@ -27,11 +27,8 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String usuario;
-    private String contrasenia;
     private String email;
-    private String nacionalidad;
-    private int fechaNacimiento;
+    private String contrasenia;
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     @Setter(AccessLevel.NONE)
     private Set<AcercaDe> acercade = new HashSet<>();
@@ -56,13 +53,10 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Long id, String usuario, String contrasenia, String email, String nacionalidad, int fechaNacimiento) {
+    public Usuario(Long id, String email, String contrasenia) {
         this.id = id;
-        this.usuario = usuario;
-        this.contrasenia = contrasenia;
         this.email = email;
-        this.nacionalidad = nacionalidad;
-        this.fechaNacimiento = fechaNacimiento;
+        this.contrasenia = contrasenia;
     }
 
     public void setAcercade(Set<AcercaDe> acercade) {
@@ -74,37 +68,37 @@ public class Usuario {
 
     public void setEducacion(Set<Educacion> educacion) {
         this.educacion = educacion;
-         for (Educacion variablelocal : educacion) {
+        for (Educacion variablelocal : educacion) {
             variablelocal.setUsuario(this);
-    }
+        }
     }
 
     public void setExperiencia(Set<Experiencia> experiencia) {
         this.experiencia = experiencia;
-         for (Experiencia variablelocal : experiencia) {
+        for (Experiencia variablelocal : experiencia) {
             variablelocal.setUsuario(this);
-    }
+        }
     }
 
     public void setHabilidades(Set<Habilidades> habilidades) {
         this.habilidades = habilidades;
         for (Habilidades variablelocal : habilidades) {
             variablelocal.setUsuario(this);
-    }
+        }
     }
 
     public void setProyectos(Set<Proyectos> proyectos) {
         this.proyectos = proyectos;
-         for (Proyectos variablelocal : proyectos) {
+        for (Proyectos variablelocal : proyectos) {
             variablelocal.setUsuario(this);
-    }
+        }
     }
 
     public void setRedessociales(Set<RedesSociales> redessociales) {
         this.redessociales = redessociales;
-         for (RedesSociales variablelocal : redessociales) {
+        for (RedesSociales variablelocal : redessociales) {
             variablelocal.setUsuario(this);
-    }
+        }
     }
 
 }

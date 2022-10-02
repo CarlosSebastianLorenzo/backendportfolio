@@ -32,7 +32,7 @@ public class UsuarioController {
         return user.leerUsuario();
     }
     
-    @GetMapping("/buscar/Usuario/{id}")
+    @GetMapping("/portfolio/{id}")
         public Usuario buscarUsuario(@PathVariable Long id){
             return user.buscarUsuario(id);
         }
@@ -40,5 +40,10 @@ public class UsuarioController {
      @DeleteMapping("/borrar/Usuario/{id}")
         public void borrarUsuario(@PathVariable Long id){
             user.borrarUsuario(id);
+        }
+        
+        @GetMapping("/login/{email}")
+        public List <Usuario>buscarEmail (@PathVariable String email){
+            return user.buscarEmail(email);
         }
 }

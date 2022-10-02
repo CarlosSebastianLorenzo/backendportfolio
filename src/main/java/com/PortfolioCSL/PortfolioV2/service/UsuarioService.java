@@ -33,4 +33,9 @@ public class UsuarioService implements IUsuarioService {
          user.deleteById(id);
     }
     
+    @Override
+    public List<Usuario> buscarEmail(String email) {
+         return user.listaPorEmail(email);
+    }
+
 }
