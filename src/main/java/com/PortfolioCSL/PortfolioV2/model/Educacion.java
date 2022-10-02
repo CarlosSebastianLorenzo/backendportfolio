@@ -1,6 +1,7 @@
 package com.PortfolioCSL.PortfolioV2.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,8 +30,10 @@ public class Educacion {
     private String institucion;
     private String logo;
     private String titulo;
-    private String fechaInicial;
-    private String fechaFinal;
+    @Temporal(TemporalType.DATE )
+    private Date fechaInicial;
+    @Temporal(TemporalType.DATE)
+    private Date fechaFinal;
     
    @JoinColumn(name = "usuario_id")
    @ManyToOne(fetch = FetchType.LAZY,optional = false)
@@ -38,7 +43,7 @@ public class Educacion {
     public Educacion() {
     }
 
-    public Educacion(Long id, String institucion, String logo, String titulo, String fechaInicial, String fechaFinal, Usuario usuario) {
+    public Educacion(Long id, String institucion, String logo, String titulo, Date fechaInicial, Date fechaFinal, Usuario usuario) {
         this.id = id;
         this.institucion = institucion;
         this.logo = logo;
@@ -47,6 +52,5 @@ public class Educacion {
         this.fechaFinal = fechaFinal;
         this.usuario = usuario;
     }
-
 
 }
