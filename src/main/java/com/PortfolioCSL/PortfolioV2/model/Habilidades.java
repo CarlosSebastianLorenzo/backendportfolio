@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,6 +26,7 @@ public class Habilidades {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nombre;
+    @Size(max=500)
     private String imagen;
     private int porcentaje;
 

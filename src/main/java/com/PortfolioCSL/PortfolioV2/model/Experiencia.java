@@ -1,6 +1,7 @@
 package com.PortfolioCSL.PortfolioV2.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,9 +33,13 @@ public class Experiencia {
     private Long id;
     private String empresa;
     private String puesto;
-    private int fechaInicio;
-    private int fechaFinal;
+    @Temporal(TemporalType.DATE )
+    private Date fechaInicio;
+    @Temporal(TemporalType.DATE )
+    private Date fechaFinal;
+    @Size(max=500)
     private String logo;
+    @Size(max=500)
     private String actividades;
 
     @JoinColumn(name = "usuario_id")
@@ -42,7 +50,7 @@ public class Experiencia {
     public Experiencia() {
     }
 
-    public Experiencia(Long id, String empresa, String puesto, int fechaInicio, int fechaFinal, String logo, String actividades, Usuario usuario) {
+    public Experiencia(Long id, String empresa, String puesto, Date fechaInicio, Date fechaFinal, String logo, String actividades, Usuario usuario) {
         this.id = id;
         this.empresa = empresa;
         this.puesto = puesto;

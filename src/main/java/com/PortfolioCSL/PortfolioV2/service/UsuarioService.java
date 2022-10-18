@@ -5,6 +5,8 @@ import com.PortfolioCSL.PortfolioV2.model.Usuario;
 import com.PortfolioCSL.PortfolioV2.repository.IUsuarioRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,7 +17,12 @@ public class UsuarioService implements IUsuarioService {
     
     @Override
     public void crearUsuario(Usuario usuario) {
-        user.save(usuario);
+         PasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
+        String email=usuario.getEmail();
+        String rawPassword=usuario.getContrasenia();
+        String encodePassword=passwordEncoder.encode(rawPassword);
+        Usuario newUser=new Usuario(email, encodePassword);
+        user.save(newUser);
     }
 
     @Override
