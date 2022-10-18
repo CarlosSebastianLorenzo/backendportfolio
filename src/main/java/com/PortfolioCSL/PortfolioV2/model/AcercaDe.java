@@ -31,9 +31,11 @@ public class AcercaDe {
     private String nombre;
     private String apellido;
     private String titulo;
+    @Size(max=500)
     private String fotoPerfil;
+    @Size(max=500)
     private String fotoPortada;
-   @Size(max=500)
+    @Size(max=500)
     private String info;
     
     @JoinColumn(name = "usuario_id")
@@ -54,7 +56,5 @@ public class AcercaDe {
         this.info = info;
         this.usuario = usuario;
     }
-
-
    
 }

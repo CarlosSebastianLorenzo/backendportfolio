@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,6 +29,7 @@ public class Educacion {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String institucion;
+    @Size(max=500)
     private String logo;
     private String titulo;
     @Temporal(TemporalType.DATE )
@@ -53,4 +55,4 @@ public class Educacion {
         this.usuario = usuario;
     }
 
-}
+ }

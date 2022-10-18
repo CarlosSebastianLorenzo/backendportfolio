@@ -1,6 +1,7 @@
 package com.PortfolioCSL.PortfolioV2.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -12,11 +13,13 @@ import javax.persistence.OneToMany;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Getter
 @Setter
 @Entity
-public class Usuario {
+public class Usuario implements UserDetails {
     //id autogenerado Long
     //usuario String
     //contrasenia String
@@ -53,8 +56,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Long id, String email, String contrasenia) {
-        this.id = id;
+    public Usuario(String email, String contrasenia) {
         this.email = email;
         this.contrasenia = contrasenia;
     }
@@ -99,6 +101,41 @@ public class Usuario {
         for (RedesSociales variablelocal : redessociales) {
             variablelocal.setUsuario(this);
         }
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public String getPassword() {
+        return contrasenia;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
 }

@@ -21,23 +21,23 @@ public class UsuarioController {
     
     //crear o editar, leer, buscar por id, borrar
     
-    @PostMapping("/crear/Usuario")
+    @PostMapping("/api/crear/Usuario")
     public void crearUsuario(@RequestBody Usuario usuario){
         user.crearUsuario(usuario);
     }
     
-    @GetMapping("/leer/Usuario")
+    @GetMapping("/api/leer/Usuario")
     @ResponseBody
     public List <Usuario>leerUsuario(){
         return user.leerUsuario();
     }
     
-    @GetMapping("/portfolio/{id}")
+    @GetMapping("/api/portfolio/{id}")
         public Usuario buscarUsuario(@PathVariable Long id){
             return user.buscarUsuario(id);
         }
         
-     @DeleteMapping("/borrar/Usuario/{id}")
+     @DeleteMapping("/api/borrar/Usuario/{id}")
         public void borrarUsuario(@PathVariable Long id){
             user.borrarUsuario(id);
         }
