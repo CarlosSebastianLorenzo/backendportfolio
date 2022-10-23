@@ -3,6 +3,7 @@ package com.PortfolioCSL.PortfolioV2.security;
 
 import com.PortfolioCSL.PortfolioV2.model.Usuario;
 import com.PortfolioCSL.PortfolioV2.security.jwt.JwtTokenUtil;
+import com.PortfolioCSL.PortfolioV2.service.IUsuarioService;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -12,6 +13,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class AuthApi {
+    
+    @Autowired
+    private IUsuarioService usuario;
+    
     @Autowired
     AuthenticationManager authManager;
     @Autowired
@@ -23,10 +28,12 @@ public class AuthApi {
                     new UsernamePasswordAuthenticationToken(
                                     request.getEmail(), request.getContrasenia())
             );
-            
+
             Usuario user = (Usuario) authentication.getPrincipal();
             String accessToken = jwtTokenUtil.generateAccessToken(user);
-            AuthResponse response = new AuthResponse(user.getEmail(), accessToken);
+            String email= user.getEmail();
+            Long id = usuario.buscarPorEmail(email).getId();
+            AuthResponse response = new AuthResponse(id, email, accessToken);
             
             return ResponseEntity.ok().body(response);
             

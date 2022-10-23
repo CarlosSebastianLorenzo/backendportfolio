@@ -16,4 +16,6 @@ public interface IUsuarioService {
         public void borrarUsuario(Long id);
         
         public List <Usuario>buscarEmail(String email);
+        
+        public Usuario buscarPorEmail(String email);
 }

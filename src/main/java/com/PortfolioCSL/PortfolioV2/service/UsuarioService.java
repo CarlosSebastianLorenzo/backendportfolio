@@ -45,4 +45,7 @@ public class UsuarioService implements IUsuarioService {
          return user.listaPorEmail(email);
     }
 
+       public Usuario buscarPorEmail(String email) {
+        return user.findByEmail(email).orElse(null);
+       }
 }

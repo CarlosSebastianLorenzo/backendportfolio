@@ -15,5 +15,6 @@ public interface IUsuarioRepository extends JpaRepository<Usuario,Long> {
      @Query("select x from Usuario x where x.email like :var_parm")
     public abstract List<Usuario> listaPorEmail(@Param("var_parm") String email);
     
-    Optional<Usuario> findByEmail(String email);
+    @Query("select x from Usuario x where x.email like :var_parm")
+    public Optional<Usuario> findByEmail(@Param("var_parm") String email);
 }
