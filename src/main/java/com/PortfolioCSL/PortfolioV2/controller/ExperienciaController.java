@@ -26,13 +26,13 @@ public class ExperienciaController {
         exp.crearExperiencia(experiencia);
     }
     
-    @GetMapping("/leer/Experiencia")
+    @GetMapping("/api/leer/Experiencia")
     @ResponseBody
     public List <Experiencia>leerExperiencia(){
         return exp.leerExperiencia();
     }
     
-    @GetMapping("/buscar/Experiencia/{id}")
+    @GetMapping("/api/buscar/Experiencia/{id}")
         public Experiencia buscarExperiencia(@PathVariable Long id){
             return exp.buscarExperiencia(id);
         }

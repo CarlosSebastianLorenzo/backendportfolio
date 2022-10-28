@@ -32,7 +32,7 @@ public class AcercaDeController {
         return acde.leerAcercaDe();
     }
     
-    @GetMapping("/buscar/AcercaDe/{id}")
+    @GetMapping("/api/buscar/AcercaDe/{id}")
         public AcercaDe buscarAcercaDe(@PathVariable Long id){
             return acde.buscarAcercaDe(id);
         }

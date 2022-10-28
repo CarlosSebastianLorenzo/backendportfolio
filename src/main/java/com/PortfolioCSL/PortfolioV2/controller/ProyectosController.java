@@ -26,13 +26,13 @@ public class ProyectosController {
         proy.crearProyectos(proyectos);
     }
     
-    @GetMapping("/leer/Proyectos")
+    @GetMapping("/api/leer/Proyectos")
     @ResponseBody
     public List <Proyectos>leerProyectos(){
         return proy.leerProyectos();
     }
     
-    @GetMapping("/buscar/Proyectos/{id}")
+    @GetMapping("/api/buscar/Proyectos/{id}")
         public Proyectos buscarProyectos(@PathVariable Long id){
             return proy.buscarProyectos(id);
         }

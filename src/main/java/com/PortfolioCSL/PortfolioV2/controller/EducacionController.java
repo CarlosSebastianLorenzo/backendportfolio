@@ -31,7 +31,7 @@ public class EducacionController {
         edu.crearEducacion(educacion);
     }
     
-    @GetMapping("/leer/Educacion")
+    @GetMapping("/api/leer/Educacion")
     @ResponseBody
     public List <Educacion>leerEducacion(){
         return edu.leerEducacion();
@@ -43,7 +43,7 @@ public class EducacionController {
     }
     
   //  @CrossOrigin(origins = "http://localhost:8080")
-    @GetMapping("/buscar/Educacion/{id}")
+    @GetMapping("/api/buscar/Educacion/{id}")
         public Educacion buscarEducacion(@PathVariable Long id){
             return edu.buscarEducacion(id);
         }

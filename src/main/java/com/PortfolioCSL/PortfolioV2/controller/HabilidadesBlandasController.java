@@ -24,13 +24,13 @@ public class HabilidadesBlandasController {
         hab.crearHabilidadesBlandas(habilidadesBlandas);
     }
     
-    @GetMapping("/leer/HabilidadesBlandas")
+    @GetMapping("/api/leer/HabilidadesBlandas")
     @ResponseBody
     public List <HabilidadesBlandas>leerHabilidadesBlandas(){
         return hab.leerHabilidadesBlandas();
     }
     
-    @GetMapping("/buscar/HabilidadesBlandas/{id}")
+    @GetMapping("/api/buscar/HabilidadesBlandas/{id}")
         public HabilidadesBlandas buscarHabilidadesBlandas(@PathVariable Long id){
             return hab.buscarHabilidadesBlandas(id);
         }

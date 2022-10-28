@@ -26,13 +26,13 @@ public class RedesSocialesController {
         rrss.crearRedesSociales(redesSociales);
     }
     
-    @GetMapping("/leer/RedesSociales")
+    @GetMapping("/api/leer/RedesSociales")
     @ResponseBody
     public List <RedesSociales>leerRedesSociales(){
         return rrss.leerRedesSociales();
     }
     
-    @GetMapping("/buscar/RedesSociales/{id}")
+    @GetMapping("/api/buscar/RedesSociales/{id}")
         public RedesSociales buscarRedesSociales(@PathVariable Long id){
             return rrss.buscarRedesSociales(id);
         }
