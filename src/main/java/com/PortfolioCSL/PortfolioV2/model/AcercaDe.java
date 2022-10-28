@@ -19,7 +19,7 @@ import lombok.Setter;
 public class AcercaDe {
     //id autogenerado Long
      //nombre String
-    //apellido String
+    //color String
     //titulo String
     //fotoPerfil String
     //fotoPortada String
@@ -29,7 +29,7 @@ public class AcercaDe {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nombre;
-    private String apellido;
+    private String color;
     private String titulo;
     @Size(max=500)
     private String fotoPerfil;
@@ -46,10 +46,10 @@ public class AcercaDe {
     public AcercaDe() {
     }
 
-    public AcercaDe(Long id, String nombre, String apellido, String titulo, String fotoPerfil, String fotoPortada, String info, Usuario usuario) {
+    public AcercaDe(Long id, String nombre, String color, String titulo, String fotoPerfil, String fotoPortada, String info, Usuario usuario) {
         this.id = id;
         this.nombre = nombre;
-        this.apellido = apellido;
+        this.color = color;
         this.titulo = titulo;
         this.fotoPerfil = fotoPerfil;
         this.fotoPortada = fotoPortada;

@@ -19,43 +19,29 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Proyectos {
-    //id Long    
-    //nombre String
-    //fecha String
-    //descripcion String
-    //link String
-    //Imagen String
-    //Usuario usuario para la ForeingKey
-
+public class HabilidadesBlandas {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nombre;
-    @Temporal(TemporalType.DATE)
-    private Date fecha;
-    @Size(max=500)
-    private String descripcion;
-    @Size(max=500)
-    private String link;
     @Size(max=500)
     private String imagen;
+    private int porcentaje;
 
     @JoinColumn(name = "usuario_id")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Usuario usuario;
 
-    public Proyectos() {
+    public HabilidadesBlandas() {
     }
 
-    public Proyectos(Long id, String nombre, Date fecha, String descripcion, String link, String imagen, Usuario usuario) {
+    public HabilidadesBlandas(Long id, String nombre, String imagen, int porcentaje, Usuario usuario) {
         this.id = id;
         this.nombre = nombre;
-        this.fecha = fecha;
-        this.descripcion = descripcion;
-        this.link = link;
         this.imagen = imagen;
+        this.porcentaje = porcentaje;
         this.usuario = usuario;
     }
 

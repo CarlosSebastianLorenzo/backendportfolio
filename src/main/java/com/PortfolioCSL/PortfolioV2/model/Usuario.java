@@ -43,15 +43,16 @@ public class Usuario implements UserDetails {
     private Set<Experiencia> experiencia = new HashSet<>();
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     @Setter(AccessLevel.NONE)
-    private Set<Habilidades> habilidades = new HashSet<>();
+    private Set<HabilidadesBlandas> habilidadesBlandas = new HashSet<>();
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     @Setter(AccessLevel.NONE)
-    @JsonIgnore
     private Set<Proyectos> proyectos = new HashSet<>();
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     @Setter(AccessLevel.NONE)
-    @JsonIgnore
     private Set<RedesSociales> redessociales = new HashSet<>();
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @Setter(AccessLevel.NONE)
+    private Set<Habilidades> habilidades = new HashSet<>();
 
     public Usuario() {
     }
@@ -81,17 +82,24 @@ public class Usuario implements UserDetails {
             variablelocal.setUsuario(this);
         }
     }
-
-    public void setHabilidades(Set<Habilidades> habilidades) {
-        this.habilidades = habilidades;
-        for (Habilidades variablelocal : habilidades) {
+    
+      public void setHabilidadesBlandas(Set<HabilidadesBlandas> habilidadesBlandas) {
+        this.habilidadesBlandas = habilidadesBlandas;
+        for (HabilidadesBlandas variablelocal : habilidadesBlandas) {
+            variablelocal.setUsuario(this);
+        }
+    }
+        
+      public void setProyectos(Set<Proyectos> proyectos) {
+        this.proyectos = proyectos;
+        for (Proyectos variablelocal : proyectos) {
             variablelocal.setUsuario(this);
         }
     }
 
-    public void setProyectos(Set<Proyectos> proyectos) {
-        this.proyectos = proyectos;
-        for (Proyectos variablelocal : proyectos) {
+    public void setHabilidades(Set<Habilidades> habilidades) {
+        this.habilidades = habilidades;
+        for (Habilidades variablelocal : habilidades) {
             variablelocal.setUsuario(this);
         }
     }

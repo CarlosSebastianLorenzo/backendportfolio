@@ -26,7 +26,7 @@ public class AcercaDeController {
         acde.crearAcercaDe(acercaDe);
     }
     
-    @GetMapping("/leer/AcercaDe")
+    @GetMapping("/api/leer/AcercaDe")
     @ResponseBody
     public List <AcercaDe>leerAcercaDe(){
         return acde.leerAcercaDe();
