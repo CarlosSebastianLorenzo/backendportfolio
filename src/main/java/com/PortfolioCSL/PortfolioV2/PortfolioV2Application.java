@@ -20,7 +20,8 @@ public class PortfolioV2Application {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://localhost:4200/").allowedMethods("*").allowedHeaders("*");
+                 registry.addMapping("/**").allowedOrigins("https://cslportfolio.web.app/").allowedMethods("*").allowedHeaders("*");
+               // registry.addMapping("/**").allowedOrigins("http://localhost:4200/").allowedMethods("*").allowedHeaders("*");
            }
         };
      }
